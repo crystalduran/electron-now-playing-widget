@@ -1,0 +1,18 @@
+{
+  "name": "now-playing-electron",
+  "version": "1.0.0",
+  "description": "now playing widget for spotify on windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "crystal d",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^33.3.1"
+  },
+  "dependencies": {
+    "colorthief": "^2.6.0"
+  }
+}
