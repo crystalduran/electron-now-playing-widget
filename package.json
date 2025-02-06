@@ -13,6 +13,16 @@
     "electron": "^33.3.1"
   },
   "dependencies": {
-    "colorthief": "^2.6.0"
-  }
+    "colorthief": "^2.6.0",
+    "dotenv": "^16.4.7"
+  },
+  "protocols": [
+    {
+      "name": "spotify-desktop-controller",
+      "role": "Viewer",
+      "schemes": [
+        "spotify-desktop-controller"
+      ]
+    }
+  ]
 }
