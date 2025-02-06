@@ -28,8 +28,6 @@ const createWindow = () => {
     win.webContents.insertCSS('body { overflow: hidden; margin: 0; padding: 0;}');
   });
 
-  win.webContents.openDevTools()
-
   // escuchar el evento 'close' de la ventana para eliminar el token
   win.on('close', () => {
     // ejecución del script para borrar el token en el almacenamiento

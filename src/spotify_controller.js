@@ -95,7 +95,7 @@ async function fetchPlayerStatus() {
                 progressBar.style.width = `${progress}%`;
             }
 
-            document.getElementById('play-button-image').src = isPlaying ? 'pause-svgrepo-com.svg' : 'play-svgrepo-com.svg';
+            document.getElementById('play-button-image').src = isPlaying ? 'assets/pause-svgrepo-com.svg' : 'assets/play-svgrepo-com.svg';
         } catch (error) {
             console.error('Error fetching player status:', error);
         }
