@@ -16,7 +16,7 @@ Here are some screenshots of the widget
 
 <img src="./assets/default_state.png" alt="Default state" width="518" style="margin: 10px 0;"/>
 
-<img src="./assets/ditto.png" alt="Song playing ditto width="518" style="margin: 10px 0;"/>
+<img src="./assets/ditto.png" alt="Song playing ditto" width="518" style="margin: 10px 0;"/>
 
 <img src="./assets/night_crawling.png" alt="Song playing night crawling" width="518" style="margin: 10px 0;"/>
 
