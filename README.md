@@ -77,6 +77,5 @@ Here are some screenshots of the widget
 
 ### Notes
 
-- The widget is a simple proof-of-concept and is not optimized for production use.
 - The app uses the Spotify Web API and requires authorization for accessing playback data.
 - The REDIRECT_URI in the app is set to spotify-desktop-controller://callback. Make sure it's configured in your Spotify Developer Dashboard as well.
