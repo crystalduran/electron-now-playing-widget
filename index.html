@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' https://i.scdn.co data:;">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" /> -->
@@ -16,81 +17,89 @@
 </head>
 
 <body>
-    <div class="widget">
+    <div id="login-section">
+        <button id="login-button">Connect with Spotify</button>
+    </div>
+    <div id="player-section" class="widget">
         <div class="progress-bar">
-            <div class="main-bar"></div>
+            <div class="main-bar" id="progress"></div>
         </div>
         <div class="main-container flex-row">
+            <button id="close-btn">x</button>
             <div class="images">
-                <img class="song-image" src="./rose.jpg" crossOrigin="anonymous" alt="song image" width="100" height="100">
+                <img id="album-art" class="song-image" src="./music-preview.png" alt="song image" width="100" height="100">
                 <!-- spotify icon -->
                 <img src="./using-our-logo.svg" style="cursor: pointer;" alt="spotify logo">
             </div>
             <div class="player">
                 <div style="margin-bottom: 10px;">
-                    <h1>drinks or coffee</h1>
-                    <h3>rosé</h3>
+                    <h1 id="track-name"></h1>
+                    <h3 id="artist-name"></h3>
                 </div>
                 <div class="player-buttons flex-row">
-                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-                    <svg class="previous-svg" fill="#ffffff" height="18" width="18" version="1.1" id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 493.52 493.52" xml:space="preserve">
+                    <button class="button-player" id="previous-button">
+                        <!DOCTYPE svg
+                            PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                        <svg class="previous-svg" fill="#ffffff" height="18" width="18" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 493.52 493.52" xml:space="preserve">
 
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
 
-                        <g id="SVGRepo_iconCarrier">
-                            <g>
-                                <g>
-                                    <path
-                                        d="M447.126,0.236c-10.056,0-20.884,4.12-32.148,11.884L140.882,200.952c-17.644,12.152-27.252,28.504-27.252,46.06 c-0.004,17.56,9.78,33.924,27.428,46.076L415.39,481.784c11.284,7.768,22.568,11.736,32.604,11.736h0.012 c10.76,0,18.916-4.404,25.276-12.972c6.268-8.46,8.688-20.476,8.688-35.012V48.508C481.974,18.74,469.186,0.236,447.126,0.236z" />
-                                </g>
-                            </g>
-                            <g>
-                                <g>
-                                    <path
-                                        d="M53.106,0.036L39.894,0C25.018,0,11.55,12.112,11.55,26.996v439.42c0,14.884,13.024,27.1,27.908,27.1h0.456l12.948-0.072 c14.88,0,28.092-12.164,28.092-27.048V27.028C80.958,12.144,67.97,0.036,53.106,0.036z" />
-                                </g>
-                            </g>
-                        </g>
-
-                    </svg>
-                    <div class="circle-play"><img src="./play-svgrepo-com.svg" class="play" alt="play song" width="20"
-                            height="20">
-                    </div>
-                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-                    <svg class="next-svg" fill="#ffffff" height="18" width="18" version="1.1" id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 493.796 493.796" xml:space="preserve">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                        <g id="SVGRepo_iconCarrier">
-                            <g>
-                                <g>
-                                    <path
-                                        d="M355.938,200.956L81.414,12.128c-11.28-7.776-23.012-11.88-33.056-11.88c-22.052,0-36.672,18.496-36.672,48.26v397.036 c0,14.54,4.228,26.688,10.496,35.144c6.364,8.572,16.32,13.108,27.076,13.108c10.04,0,21.308-4.112,32.584-11.876l274.276-188.828 c17.632-12.152,27.3-28.508,27.296-46.076C383.414,229.456,373.594,213.1,355.938,200.956z" />
-                                </g>
-                            </g>
-                            <g>
+                            <g id="SVGRepo_iconCarrier">
                                 <g>
                                     <g>
                                         <path
-                                            d="M456.446,493.672l-0.293-0.004c-0.048,0-0.095,0.004-0.143,0.004H456.446z" />
+                                            d="M447.126,0.236c-10.056,0-20.884,4.12-32.148,11.884L140.882,200.952c-17.644,12.152-27.252,28.504-27.252,46.06 c-0.004,17.56,9.78,33.924,27.428,46.076L415.39,481.784c11.284,7.768,22.568,11.736,32.604,11.736h0.012 c10.76,0,18.916-4.404,25.276-12.972c6.268-8.46,8.688-20.476,8.688-35.012V48.508C481.974,18.74,469.186,0.236,447.126,0.236z" />
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
                                         <path
-                                            d="M455.638,0L444.29,0.032c-14.86,0-27.724,12.112-27.724,26.992v439.368c0,14.896,12.652,27.124,27.532,27.124 l12.055,0.152c14.805-0.079,25.957-12.412,25.957-27.252V26.996C482.11,12.116,470.51,0,455.638,0z" />
+                                            d="M53.106,0.036L39.894,0C25.018,0,11.55,12.112,11.55,26.996v439.42c0,14.884,13.024,27.1,27.908,27.1h0.456l12.948-0.072 c14.88,0,28.092-12.164,28.092-27.048V27.028C80.958,12.144,67.97,0.036,53.106,0.036z" />
                                     </g>
                                 </g>
                             </g>
-                        </g>
+                        </svg>
+                    </button>
 
-                    </svg>
+                    <div id="play-button" class="circle-play">
+                        <img id="play-button-image" src="./play-svgrepo-com.svg" class="play" alt="play song" width="20" height="20">
+                    </div>
+                    <button class="button-player" id="next-button">
+                        <!DOCTYPE svg
+                            PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                        <svg class="next-svg" fill="#ffffff" height="18" width="18" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 493.796 493.796" xml:space="preserve">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M355.938,200.956L81.414,12.128c-11.28-7.776-23.012-11.88-33.056-11.88c-22.052,0-36.672,18.496-36.672,48.26v397.036 c0,14.54,4.228,26.688,10.496,35.144c6.364,8.572,16.32,13.108,27.076,13.108c10.04,0,21.308-4.112,32.584-11.876l274.276-188.828 c17.632-12.152,27.3-28.508,27.296-46.076C383.414,229.456,373.594,213.1,355.938,200.956z" />
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M456.446,493.672l-0.293-0.004c-0.048,0-0.095,0.004-0.143,0.004H456.446z" />
+                                            <path
+                                                d="M455.638,0L444.29,0.032c-14.86,0-27.724,12.112-27.724,26.992v439.368c0,14.896,12.652,27.124,27.532,27.124 l12.055,0.152c14.805-0.079,25.957-12.412,25.957-27.252V26.996C482.11,12.116,470.51,0,455.638,0z" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -98,13 +107,16 @@
     <script>
         const colorThief = new ColorThief();
         const widgetContainer = document.querySelector('.widget');
-        const progressbar = document.querySelector('.main-bar');
         const img = document.querySelector('.song-image');
+        const progressBar = document.querySelector('.main-bar');
+
         if (img && widgetContainer) {
-            if (img.complete) {
-                processImageColor();
-            } else {
+            if (img.src) {
+                // listen to the 'load' event to know when the image is fully loaded
                 img.addEventListener('load', processImageColor);
+                img.addEventListener('error', () => console.error('Error loading the image from the API.'));
+            } else {
+                console.error('The image does not have a valid URL..');
             }
         } else {
             console.error('Image or widget container not found!');
@@ -112,14 +124,41 @@
 
         function processImageColor() {
             try {
+                if (!img.complete || img.naturalWidth === 0) {
+                    console.warn("The image is not fully loade.");
+                    return;
+                }
+
+                // extract the dominant color using color thief librrary
                 const color = colorThief.getColor(img);
+                // returns an array [r, g, b].
+
+                // widget background with dominant color (semi-transparent)
                 widgetContainer.style.backgroundColor = `rgba(${color.join(',')}, 0.5)`;
-                progressbar.style.backgroundColor = `rgba(${color.join(',')}`;
+
+                // set a lighter color for the progress bar
+                const lighterColor = lightenColor(color, 1.2);
+
+                // assign lighter color to the progress bar
+                if (progressBar) {
+                    progressBar.style.backgroundColor = `rgb(${lighterColor.join(',')})`;
+                }
+
             } catch (error) {
-                console.error('Error extracting color:', error);
+                console.error('Error when extracting the color:', error);
             }
         }
+
+        // function to lighten a color by a given factor
+        function lightenColor(color, factor) {
+            return color.map(value => {
+                // Math.min()  returns the number with the lowest value (to ensure that it does not exceed 255)
+                const newValue = Math.min(255, Math.floor(value * factor));
+                return newValue;
+            });
+        }
     </script>
+    <script src="./spotify_controller.js"></script>
 </body>
 
 </html>
